@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/cards", async (req, res) => {
   res.json(
-    await Card.findAll()
+    await Card.findAll({order: ["id"]})
   )
 });
 
