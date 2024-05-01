@@ -1,0 +1,108 @@
+.cards {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.card {
+    border: 1px solid #000;
+    min-height: 250px;
+    max-width: 350px;
+    width: 100%;
+
+    display: flex;
+    position: relative;
+
+    cursor: pointer;
+}
+
+.update-btn {
+    display: none;
+    opacity: 0.5;
+
+    font-size: 16px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.close-btn {
+    display: none;
+    opacity: 0.5;
+
+    font-size: 16px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.shuffle-btn {
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+
+    margin-bottom: 8px;
+}
+
+.card-table {
+    display: none;
+    border-spacing: 0;
+}
+
+.card-table th {
+    padding: 4px;
+    text-align: start;
+    border: 1px solid #000;
+}
+
+.card-table td {
+    padding: 4px;
+    border: 1px solid #000;
+}
+
+.card-table tr {
+    border: 1px solid #000;
+}
+
+.formula {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}
+
+.card.open {
+    cursor: default;
+}
+
+.card.open .card-table{
+    display: unset;
+}
+
+.card.open .formula {
+    display: none;
+}
+
+.card.open .close-btn {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.card.open .update-btn {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.lessons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.lesson-checkbox {
+    border: 1px solid #000;
+    padding: 4px;
+    cursor: pointer;
+}

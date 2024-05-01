@@ -1,0 +1,9 @@
+{
+    "tables": {
+        "Cards": {
+            "tableName": "Cards",
+            "indexes": []
+        }
+    },
+    "revision": 1
+}
