@@ -17,7 +17,7 @@ app.put("/cards/:id", async (req, res) => {
   if (!card) {
     return res.status(404).json({ error: "Card not found" });
   }
-  await card.update(req.body);
+  res.send(await card.update(req.body));
 });
 
 app.use("/view", express.static("view"));
