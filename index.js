@@ -20,8 +20,8 @@ app.put("/cards/:id", async (req, res) => {
   res.send(await card.update(req.body));
 });
 
-app.get("/cards-drop", async (req, res) => {
-  await Card.drop()
+app.post("/drop", async (req, res) => {
+  await Card.drop();
 })
 
 app.use("/view", express.static("view"));

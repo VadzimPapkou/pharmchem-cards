@@ -8,6 +8,7 @@ module.exports = {
     const sint = await readFilesAndConvertToBase64("sint");
     const tuber = await readFilesAndConvertToBase64("tuber");
     const virus = await readFilesAndConvertToBase64("virus");
+    const citostatic = await readFilesAndConvertToBase64("citostatic");
 
     const cards = [
       ...beta.map(img => ({formula: img, lesson: "Бета-лактамы"})),
@@ -15,6 +16,7 @@ module.exports = {
       ...sint.map(img => ({formula: img, lesson: "Синтетические"})),
       ...tuber.map(img => ({formula: img, lesson: "Туберкулез"})),
       ...virus.map(img => ({formula: img, lesson: "Вирусы"})),
+      ...citostatic.map(img => ({formula: img, lesson: "Противоопухолевые"})),
     ];
 
     return queryInterface.bulkInsert('Cards', cards);
