@@ -22,7 +22,7 @@ app.put("/cards/:id", async (req, res) => {
 });
 
 app.post("/drop", async (req, res) => {
-  res.send(await Card.drop());
+  res.send(await Card.destroy({}));
 });
 
 app.post("/seed", async (req, res) => {
