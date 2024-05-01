@@ -68,14 +68,18 @@ document.addEventListener("click", async e => {
   const closestCard = e.target.closest(".card");
   const entries = [...closestCard.querySelectorAll("[data-property]")].map($prop => [$prop.dataset.property, $prop.innerText]);
   const cardData = Object.fromEntries(entries);
-  console.log(cardData)
-  await fetch("/cards/" + closestCard.dataset.id, {
-    method: "put",
-    body: JSON.stringify(cardData),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
+  try {
+    const response = await fetch("/cards/" + closestCard.dataset.id, {
+      method: "put",
+      body: JSON.stringify(cardData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    addNotification("Успех", "success")
+  } catch (e) {
+      addNotification(e, "error");
+  }
 });
 
 document.addEventListener("click", e => {
@@ -96,6 +100,16 @@ function handleLessonChange(e) {
   const $cards = document.querySelector(".cards");
   $cards.innerHTML = "";
   window.cards.filter(card => checkedLessons.includes(card.lesson)).forEach(card => $cards.append(card.$el));
+}
+
+function addNotification(text, className = "") {
+  const $notification = fromHTML(`<div class="notification ${className}">${text}</div>`);
+  document.querySelector(".notifications").append(
+    $notification
+  );
+  setTimeout(() => {
+    $notification.remove()
+  }, 2000);
 }
 
 main();

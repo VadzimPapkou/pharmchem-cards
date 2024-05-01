@@ -1,3 +1,28 @@
+.notifications {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.notification {
+    border-radius: 200px;
+    padding: 16px;
+    background-color: rgba(255, 233, 86, 255);
+}
+
+.error {
+    background-color: red;
+    color: #fff;
+}
+
+.success {
+    background-color: limegreen;
+}
+
 .cards {
     margin-top: 8px;
     display: flex;
