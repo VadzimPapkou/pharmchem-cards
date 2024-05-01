@@ -2,6 +2,7 @@ const express = require('express');
 const path = require("path");
 const {Card} = require("./models");
 const app = express();
+const { exec } = require('child_process');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -21,8 +22,14 @@ app.put("/cards/:id", async (req, res) => {
 });
 
 app.post("/drop", async (req, res) => {
-  await Card.drop();
-})
+  res.send(await Card.drop());
+});
+
+app.post("/seed", async (req, res) => {
+  exec("npx sequelize-cli db:seed:all", () => {
+    res.end();
+  })
+});
 
 app.use("/view", express.static("view"));
 
