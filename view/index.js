@@ -78,7 +78,7 @@ document.addEventListener("click", async e => {
     });
     addNotification("Успех", "success")
   } catch (e) {
-      addNotification(e, "error");
+    addNotification(e, "error");
   }
 });
 
