@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     mechanism: DataTypes.STRING,
     pharmacology: DataTypes.STRING,
     lesson: DataTypes.STRING,
-    derivate: DataTypes.STRING
+    derivate: DataTypes.STRING,
+    quantification: DataTypes.STRING,
+    identification: DataTypes.STRING,
+    tradename: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Card',
