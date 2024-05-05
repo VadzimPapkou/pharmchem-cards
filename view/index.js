@@ -1,7 +1,11 @@
 let areCardsLoading = true;
 
+const password = window.prompt("ПАРОЛЬ?");
+document.cookie = "password=" + password;
+
 async function main() {
   const response = await fetch("/cards");
+  if(response.status === 401) window.location.href = "/401";
   let cards = await response.json();
   cards = cards.map(card => {
     const $card = fromHTML(
