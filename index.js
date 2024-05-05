@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+process.env.PASSWORD = process.env.PASSWORD || "123456";
 
 function auth(req, res, next) {
   if(req.cookies.password === process.env.PASSWORD) {

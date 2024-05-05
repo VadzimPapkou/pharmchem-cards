@@ -19,17 +19,29 @@ async function main() {
                   <td data-property="name" contenteditable>${card.name}</td>
                 </tr>
                 <tr>
-                  <th>Фармакология</th>
+                  <th>Показания</th>
                   <td data-property="pharmacology" contenteditable>${card.pharmacology}</td>
                 </tr>
                 <tr>
-                  <th>Механизм действия</th>
+                  <th>Механизм д-я</th>
                   <td data-property="mechanism" contenteditable>${card.mechanism}</td>
                 </tr>
                 <tr>
-                  <th>Производное</th>
+                  <th>Производное чего</th>
                   <td data-property="derivate" contenteditable>${card.derivate}</td>
-                </tr>        
+                </tr>
+                <tr>
+                  <th>Торговые</th>
+                  <td data-property="tradename" contenteditable>${card.tradename}</td>
+                </tr> 
+                <tr>
+                  <th>Идентификация</th>
+                  <td data-property="identification" contenteditable>${card.identification}</td>
+                </tr> 
+                <tr>
+                  <th>КО</th>
+                  <td data-property="quantification" contenteditable>${card.quantification}</td>
+                </tr>         
         </table>    
     </div>`);
 
