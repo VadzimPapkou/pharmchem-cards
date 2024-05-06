@@ -32,7 +32,7 @@
 
 .card {
     border: 1px solid #000;
-    min-height: 300px;
+    min-height: 350px;
     max-width: 350px;
     width: 100%;
 
@@ -71,16 +71,26 @@
 .card-table {
     display: none;
     border-spacing: 0;
+    width: 100%;
+}
+
+.card-table tr {
+    width: 100%;
+}
+
+.card-table tbody {
+    display: table;
+    width: 100%;
 }
 
 .card-table th {
+    width: 100px;
     padding: 4px;
     text-align: start;
     border: 1px solid #000;
 }
 
 .card-table td {
-    min-width: 200px;
     padding: 4px;
     border: 1px solid #000;
 }
