@@ -7,6 +7,7 @@ async function main() {
   const response = await fetch("/cards");
   if(response.status === 401) window.location.href = "/401";
   let cards = await response.json();
+  const nullToEmpty = str => String(str) === "null" ? "" : String(str);
   cards = cards.map(card => {
     const $card = fromHTML(
       `<div class="card" data-id="${card.id}">
@@ -16,31 +17,31 @@ async function main() {
         <table class="card-table">
                 <tr>
                   <th>Название</th>
-                  <td data-property="name" contenteditable>${card.name}</td>
+                  <td data-property="name" contenteditable style="text-transform: uppercase; font-weight: bold">${nullToEmpty(card.name)}</td>
                 </tr>
                 <tr>
                   <th>Показания</th>
-                  <td data-property="pharmacology" contenteditable>${card.pharmacology}</td>
+                  <td data-property="pharmacology" contenteditable>${nullToEmpty(card.pharmacology)}</td>
                 </tr>
                 <tr>
                   <th>Механизм д-я</th>
-                  <td data-property="mechanism" contenteditable>${card.mechanism}</td>
+                  <td data-property="mechanism" contenteditable>${nullToEmpty(card.mechanism)}</td>
                 </tr>
                 <tr>
                   <th>Производное чего</th>
-                  <td data-property="derivate" contenteditable>${card.derivate}</td>
+                  <td data-property="derivate" contenteditable>${nullToEmpty(card.derivate)}</td>
                 </tr>
                 <tr>
                   <th>Торговые</th>
-                  <td data-property="tradename" contenteditable>${card.tradename}</td>
+                  <td data-property="tradename" contenteditable>${nullToEmpty(card.tradename)}</td>
                 </tr> 
                 <tr>
                   <th>Идентификация</th>
-                  <td data-property="identification" contenteditable>${card.identification}</td>
+                  <td data-property="identification" contenteditable>${nullToEmpty(card.identification)}</td>
                 </tr> 
                 <tr>
                   <th>КО</th>
-                  <td data-property="quantification" contenteditable>${card.quantification}</td>
+                  <td data-property="quantification" contenteditable>${nullToEmpty(card.quantification)}</td>
                 </tr>         
         </table>    
     </div>`);
