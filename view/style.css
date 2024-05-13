@@ -60,12 +60,16 @@
     cursor: pointer;
 }
 
-.shuffle-btn {
+.shuffle-btn, .reset-btn {
     font-size: 20px;
     padding: 10px;
     cursor: pointer;
 
     margin-bottom: 8px;
+}
+
+.shuffle-btn {
+    margin-left: 8px;
 }
 
 .card-table {

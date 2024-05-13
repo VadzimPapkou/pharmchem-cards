@@ -62,6 +62,7 @@ async function main() {
   </label>`).join("\n");
   document.body.insertAdjacentElement("afterbegin", fromHTML(`<div class="lessons">${checkboxes}</div>`));
   document.body.insertAdjacentElement("afterbegin", fromHTML(`<button class="shuffle-btn">Перемешать</button>`));
+  document.body.insertAdjacentElement("afterbegin", fromHTML(`<button class="reset-btn">Исходный порядок</button>`));
   handleLessonChange();
 }
 
@@ -109,7 +110,17 @@ document.addEventListener("click", e => {
 
   document.querySelector(".cards").innerHTML = "";
   document.querySelector(".cards").append(...shuffled);
-})
+});
+
+document.addEventListener("click", e => {
+  if(!e.target.classList.contains("reset-btn")) return;
+
+  let cards = [...document.querySelectorAll(".card")]
+    .sort((a, b) => +a.dataset.id - +b.dataset.id);
+
+  document.querySelector(".cards").innerHTML = "";
+  document.querySelector(".cards").append(...cards);
+});
 
 function handleLessonChange(e) {
   const checkedLessons = [...document.querySelectorAll(".lesson-checkbox input:checked")].map($el => $el.value);
